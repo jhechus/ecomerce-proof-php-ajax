@@ -18,10 +18,31 @@
 </head>
 
 <body>
-  <h1> este es h1 </h1>
-  <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt mollitia incidunt nihil natus, dolore aspernatur amet atque perferendis, ipsum recusandae impedit obcaecati provident eaque exercitationem sapiente pariatur ipsam quam in?
-  </p>
-  <a href="alo"> nose que poner </a>
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Catalogo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Carrito</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Buscar">
+        <button class="btn btn-primary" type="button">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav> 
+
 
 
 <!-- jquery -->
@@ -42,10 +63,9 @@ src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- waitMe -->
 <script 
 src="assets/plugins/waitme/waitMe.min.js"></script>
-
-<script>
+<!-- <script>
    $('body').waitMe('hide');
-</script>
+</script> -->
 
 
 </body>
