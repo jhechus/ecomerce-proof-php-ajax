@@ -42,7 +42,67 @@
     </div>
   </div>
 </nav> 
+<!-- end navbar -->
 
+<!--content-->
+<div class="container-fluid py-3">
+  <div class="row">
+
+    <!-- Productos -->
+    <div class="col-xl-8">
+      <h1> Productos </h1>
+      <div class="row">
+        
+        <div class="col-3">
+          <div class="card">
+            <img src="https://placeimg.com/300/300/tech" alt="Producto" class="card-img-top">
+            <div class="card-body text-right p-2">
+              <h5 class="card-title text-truncate"> Texto del producto Lorem ipsum dolor </h5>
+              <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Agregar al carrito"><i class="fas fa-plus"></i> Agregar al carrito </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card">
+            <img src="https://placeimg.com/300/300/tech" alt="Producto" class="card-img-top">
+            <div class="card-body text-right p-2">
+              <h5 class="card-title text-truncate"> Texto del producto Lorem ipsum dolor </h5>
+              <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Agregar al carrito"><i class="fas fa-plus"></i> Agregar al carrito </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card">
+            <img src="https://placeimg.com/300/300/tech" alt="Producto" class="card-img-top">
+            <div class="card-body text-right p-2">
+              <h5 class="card-title text-truncate"> Texto del producto Lorem ipsum dolor </h5>
+              <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Agregar al carrito"><i class="fas fa-plus"></i> Agregar al carrito </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card">
+            <img src="https://placeimg.com/300/300/tech" alt="Producto" class="card-img-top">
+            <div class="card-body text-right p-2">
+              <h5 class="card-title text-truncate"> Texto del producto Lorem ipsum dolor </h5>
+              <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Agregar al carrito"><i class="fas fa-plus"></i> Agregar al carrito </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- carrito -->
+    <div class="col-xl-4">
+    <h1> Carrito </h1>
+    </div>
+  </div>
+</div>
+<!-- end content -->
 
 
 <!-- jquery -->
@@ -66,6 +126,13 @@ src="assets/plugins/waitme/waitMe.min.js"></script>
 <!-- <script>
    $('body').waitMe('hide');
 </script> -->
+
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
 
 
 </body>
