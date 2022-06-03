@@ -70,5 +70,6 @@ $products = [
     'imagen' => 'batman.png',
     'price' => 899.99
 ],
-
 ];
+
+return $products;

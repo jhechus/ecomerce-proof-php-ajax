@@ -1,8 +1,13 @@
-<?php require_once 'app/config.php'; ?>
-<?php require_once 'app/functions.php'; ?>
+<?php
 
-  
-<?php test(); ?>  
+// PHP y todas sus funciones predefinidas estan todas atras de esto 
+require_once 'app/config.php';
 
 
-<?php require_once 'views/carro.php'; ?>
+
+
+//renderizado de la vista
+render_view('carro');
+//require_once 'views/carro.php'; 
+
+?>

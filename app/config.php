@@ -25,5 +25,10 @@ define('PLUGINS' , ASSETS.'plugins/');
 
 define('SHIPPING_COST' , 110.90);
 
+/**
+ * incluir todas nuestras funciones personalizadas
+ */
+require_once APP.'functions.php'
+
 
 ?>
