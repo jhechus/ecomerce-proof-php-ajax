@@ -3,11 +3,14 @@
 // PHP y todas sus funciones predefinidas estan todas atras de esto 
 require_once 'app/config.php';
 
-
+$data =
+[ 
+    'products' => get_products()
+];
 
 
 //renderizado de la vista
-render_view('carro');
-//require_once 'views/carro.php'; 
+render_view('carro', $data);
+; 
 
 ?>

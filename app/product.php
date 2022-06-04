@@ -11,24 +11,25 @@ $products = [
     'id' => 1,
     'sku' => '345678',
     'name' =>  'tenis soldado',
-    'imagen' => 'soldado.png',
+    'imagen' => 'soldado.jpg',
     'price' => 799.99
 ],
 [
     'id' => 2,
     'sku' => '346578',
     'name' =>  'tenis hello kitty',
-    'imagen' => 'hello_kitty.png',
+    'imagen' => 'soldado.jpeg',
     'price' => 799.99
 ],
+
 [
     'id' => 3,
     'sku' => '345458',
     'name' =>  'tenis dia de muertos',
-    'imagen' => 'dia_de_muertos.png',
+    'imagen' => 'soldado.png',
     'price' => 999.99
 ],
-[
+/*[
     'id' => 4,
     'sku' => '545571',
     'name' =>  'tenis chuck taylor mujer',
@@ -69,7 +70,7 @@ $products = [
     'name' =>  'tenis batman',
     'imagen' => 'batman.png',
     'price' => 899.99
-],
+],*/
 ];
 
 return $products;
