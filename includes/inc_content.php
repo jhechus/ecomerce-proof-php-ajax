@@ -10,9 +10,10 @@
        <?php foreach ($data['products'] as $p): ?>
         <div class="col-3 mb-3">
           <div class="card">
-            <img src="<?php echo IMAGES.$p['imagen']; ?>" alt="Producto" class="card-img-top">
+            <img src="<?php echo IMAGES.$p['imagen']; ?>" alt="<?php echo $p['name']; ?>" class="card-img-top">
             <div class="card-body text-right p-2">
               <h5 class="card-title text-truncate"> <?php echo $p['name'] ?> </h5>
+              <p class="text-success"> <?php echo format_currency($p['price']); ?> </p>
               <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Agregar al carrito"><i class="fas fa-plus"></i> Agregar al carrito </button>
             </div>
           </div>
