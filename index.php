@@ -9,8 +9,8 @@ $data =
 ];
 
 
+
 //renderizado de la vista
 render_view('carro', $data);
-; 
 
 ?>

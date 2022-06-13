@@ -1,5 +1,9 @@
 <?php 
 
+/* Inicializacion de sesion de usuario */
+session_start();
+
+
 /** url constante */
 define('PORT' , '8848');
 define('BASEPATH' , '/proyectos/carro_de_compras/');

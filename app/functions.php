@@ -33,3 +33,39 @@ function format_currency($number, $symbol = '$'){
 
    return $symbol.number_format($number,2,'.',',');
 }
+
+
+// funciones del carrito
+
+function get_cart() {
+   //products
+   //-ID
+   //-SKU
+   //-IMAGEN
+   //-NOMBRE
+   //-PRECIO
+   //-CANTIDAD
+
+
+   //total products
+   //subtotal
+   //shipment
+   //total
+   //payment url
+   if(isset($_SESSION['cart'])) {
+      return $_SESSION['cart'];
+   }
+
+   $cart =
+   [
+      'products' => [],
+      'total_products' => 0,
+      'subtotal' => 0,
+      'shipment' => 0,
+      'total' => 0,
+      'payment_url' => null
+   ];
+
+   $_SESSION['cart'] = $cart;
+   return $_SESSION['cart'];
+}
