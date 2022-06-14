@@ -33,3 +33,26 @@ function format_currency($number, $symbol = '$'){
 
    return $symbol.number_format($number,2,'.',',');
 }
+
+//funciones del carrito (carga)
+
+function get_cart() {
+
+   if(isset($_SESSION['cart'])){
+      return $_SESSION['cart'];
+   }
+
+   $cart =
+   [
+      'products' => [],
+      'total_products' => 0,
+      'subtotal' => 0,
+      'shipment' => 0,
+      'total' => 0,
+      'payment_url' => NULL
+   ];
+
+   $_SESSION['cart'] = $cart;
+   return $_SESSION['cart'];
+
+}
