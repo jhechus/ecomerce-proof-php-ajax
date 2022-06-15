@@ -1,4 +1,11 @@
 $(document).ready(function() {
-   console.log('hola');
+   
+    function load_cart() {
+        var wrapper = $('#cartwrapper'),
+        action = 'get';
+
+        wrapper = waitMe();
+    };
+    load_cart();
 
 });

@@ -28,7 +28,7 @@
     <div class="col-xl-4 bg-light">
       <h1> Carrito </h1>
       <!-- cart content -->
-      <div id="cart_wrapper">
+      <div id="cartwrapper">
         <div class="table-responsive">
           <table class="table table-hover table-border table-sm">
             <thead>
