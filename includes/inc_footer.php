@@ -1,5 +1,5 @@
-<!-- jquery -->   
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
   <!-- JavaScript Bundle with Popper (boostrap) -->
 <script 
@@ -20,18 +20,14 @@ src="assets/plugins/waitme/waitMe.min.js"></script>
    $('body').waitMe('hide');
 </script> -->
 
-<!--
- <script>
+<script>
   $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
-</script> 
--->
+</script>
 
 <!-- main js -->
-<script 
-src="assets/js/main.js">
-</script>
+<script src="assets/js/main.js" ></script>
 
 </body>
 </html>
