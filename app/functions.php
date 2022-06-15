@@ -34,25 +34,11 @@ function format_currency($number, $symbol = '$'){
    return $symbol.number_format($number,2,'.',',');
 }
 
-
-// funciones del carrito
+//funciones del carrito (carga)
 
 function get_cart() {
-   //products
-   //-ID
-   //-SKU
-   //-IMAGEN
-   //-NOMBRE
-   //-PRECIO
-   //-CANTIDAD
 
-
-   //total products
-   //subtotal
-   //shipment
-   //total
-   //payment url
-   if(isset($_SESSION['cart'])) {
+   if(isset($_SESSION['cart'])){
       return $_SESSION['cart'];
    }
 
@@ -63,7 +49,7 @@ function get_cart() {
       'subtotal' => 0,
       'shipment' => 0,
       'total' => 0,
-      'payment_url' => null
+      'payment_url' => NULL
    ];
 
    $_SESSION['cart'] = $cart;

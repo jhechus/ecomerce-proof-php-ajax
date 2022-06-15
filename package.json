@@ -1,0 +1,19 @@
+{
+  "name": "carro_de_compras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhechus/ecomerce-proof-php-ajax.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhechus/ecomerce-proof-php-ajax/issues"
+  },
+  "homepage": "https://github.com/jhechus/ecomerce-proof-php-ajax#readme"
+}
