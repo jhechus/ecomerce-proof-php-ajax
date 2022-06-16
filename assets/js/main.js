@@ -10,10 +10,10 @@ $( document ).ready(function() {
   $.ajax({
         url: 'app/ajax.php',
         type: 'GET',
+        dataType: 'JSON',
         beforeSend: function(){
             wrapper.waitMe();
         }
-        //promesas
     }).done(function(res){
         console.log('res');
     }).fail(function(err){
