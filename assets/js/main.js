@@ -13,6 +13,7 @@ $( document ).ready(function() {
         beforeSend: function(){
             wrapper.waitMe();
         }
+        //promesas
     }).done(function(res){
         console.log('res');
     }).fail(function(err){
