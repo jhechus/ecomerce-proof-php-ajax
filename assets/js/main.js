@@ -6,9 +6,25 @@ $( document ).ready(function() {
     var wrapper = $('#cart_wrapper'),
     action = 'get';
 
-        //wrapper es la funcion mas facil que esta en el contenido
-        //con el wait se pone la opcion de cargando
-    wrapper.waitMe('hide');
+    //peticion de ajax
+  $.ajax({
+        url: 'app/ajax.php',
+        type: 'GET',
+        beforeSend: function(){
+            wrapper.waitMe();
+        }
+    }).done(function(res){
+        console.log('res');
+    }).fail(function(err){
+        console.log('err');
+        swal.fire('lo siento','ha ocurrido un error', "error");
+        return false;
+    }).always(function(){
+        console.log('ejecutando always');
+        setTimeout(() => {
+            wrapper.waitMe('hide');
+        }, 2000);
+    });
     };
     load_cart();
 
