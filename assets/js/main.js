@@ -8,12 +8,13 @@ $( document ).ready(function() {
 
     //peticion de ajax
   $.ajax({
-        url: 'app/ajax.php',
+        url: 'ajax.php',
         type: 'GET',
-        dataType: 'JSON',
+        dataTYpe: 'JSON',
         beforeSend: function(){
             wrapper.waitMe();
         }
+        //promesas
     }).done(function(res){
         console.log('res');
     }).fail(function(err){
