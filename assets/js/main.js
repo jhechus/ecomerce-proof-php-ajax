@@ -9,8 +9,11 @@ $( document ).ready(function() {
     //peticion de ajax
   $.ajax({
         url: 'ajax.php',
-        type: 'GET',
+        type: 'POST',
         dataTYpe: 'JSON',
+        data:{
+            action
+        },
         beforeSend: function(){
             wrapper.waitMe();
         }
