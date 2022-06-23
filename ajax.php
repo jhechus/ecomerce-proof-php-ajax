@@ -16,50 +16,58 @@ $action = $_POST['action'];
 //GET
 switch ($action) {
     case 'get':
-        $output = '
-        <div class="table-responsive">
-        <table class="table table-hover table-border table-sm">
-          <thead>
-            <tr>
-              <th> Producto </th>
-              <th class="text-center"> Cantidad </th>
-              <th class="text-center"> Total </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="align-middle"> Producto 1
-                <small class="d-block text-muted"> Te de hierbabuena </small>
-              </td>
-              <td class="align-middle text-center" width="5%"> 
-                <input type="number" class="form-control form-control-sm" min="0" max="40" value="1"> </td>
-              <td class="align-middle text-center"> $120 </td>
-              <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
-            </tr>
-
-            <tr>
-              <td class="align-middle"> Producto 2
-                <small class="d-block text-muted"> Amor anillo </small>
-              </td>
-              <td class="align-middle text-center" width="5%"> 
-                <input type="number" class="form-control form-control-sm" min="0" max="40" value="1"> </td>
-              <td class="align-middle text-center"> $60 </td>
-              <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
-            </tr>
-
-            <tr>
-              <td class="align-middle"> Producto 3
-                <small class="d-block text-muted"> celular </small>
-              </td>
-              <td class="align-middle text-center" width="5%"> 
-                <input type="number" class="form-control form-control-sm" min="0" max="40" value="1"> </td>
-              <td class="align-middle text-center"> $180 </td>
-              <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <button class="btn btn-sm btn-danger"> Vaciar carrito </button>
+        $cart = get_cart();
+        $output = ' ';
+        if (!empty($cart['products'])) {
+            $output .= '
+          <div class="table-responsive">
+            <table class="table table-hover table-border table-sm">
+              <thead>
+                <tr>
+                  <th> Producto </th>
+                  <th class="text-center"> Cantidad </th>
+                  <th class="text-center"> Total </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="align-middle"> Producto 1
+                    <small class="d-block text-muted"> Te de hierbabuena </small>
+                  </td>
+                  <td class="align-middle text-center" width="5%"> 
+                    <input type="number" class="form-control form-control-sm" min="0" max="40" value="1"> </td>
+                  <td class="align-middle text-center"> $120 </td>
+                  <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
+                </tr>
+    
+                <tr>
+                  <td class="align-middle"> Producto 2
+                    <small class="d-block text-muted"> Amor anillo </small>
+                  </td>
+                  <td class="align-middle text-center" width="5%"> 
+                    <input type="number" class="form-control form-control-sm" min="0" max="40" value="1"> </td>
+                  <td class="align-middle text-center"> $60 </td>
+                  <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
+                </tr>
+    
+                <tr>
+                  <td class="align-middle"> Producto 3
+                    <small class="d-block text-muted"> celular </small>
+                  </td>
+                  <td class="align-middle text-center" width="5%"> 
+                    <input type="number" class="form-control form-control-sm" min="0" max="40" value="1"> </td>
+                  <td class="align-middle text-center"> $180 </td>
+                  <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn btn-sm btn-danger"> Vaciar carrito </button>';
+        } else {
+            $output .= 'No hay productos en el carrito';
+        }
+        $output .= '
+        
       <!-- end cart content -->
       <br><br>
       <!-- cart total -->
