@@ -64,7 +64,11 @@ switch ($action) {
           </div>
           <button class="btn btn-sm btn-danger"> Vaciar carrito </button>';
         } else {
-            $output .= 'No hay productos en el carrito';
+            $output .= '
+            <div class="text-center">
+            <img src="'.IMAGES.'carvacio.png'.'" title="no hay productos" class="img-fluid" style="width: 150px;">
+            <p> No hay productos en el carrito </p>
+            </div>';
         }
         $output .= '
         
