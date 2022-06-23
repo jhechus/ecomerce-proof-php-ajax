@@ -34,13 +34,21 @@ function format_currency($number, $symbol = '$'){
    return $symbol.number_format($number,2,'.',',');
 }
 
+
+
 //funciones del carrito (carga)
+
+
+
 
 function get_cart() {
 
    if(isset($_SESSION['cart'])){
       return $_SESSION['cart'];
    }
+
+ 
+
 
    $cart =
    [
@@ -55,3 +63,23 @@ function get_cart() {
    $_SESSION['cart'] = $cart;
    return $_SESSION['cart'];
 }
+
+
+
+
+
+
+
+
+
+function json_output($status = 200, $msg = '' , $data = []){
+   http_response_code($status);
+   $r =
+   [
+      'status' => $status,
+      'msg' => $msg,
+      'data' => $data
+   ];
+echo json_encode($r);
+die;
+   }

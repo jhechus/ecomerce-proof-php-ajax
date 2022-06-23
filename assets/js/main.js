@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    
+
     //cargar el carro
     function load_cart(){
         //se declara variable para poder trabajar mas comodamente
@@ -10,16 +10,17 @@ $( document ).ready(function() {
   $.ajax({
         url: 'ajax.php',
         type: 'POST',
-        dataTYpe: 'JSON',
-        data:{
-            action
-        },
+        dataType: 'JSON',
+        data:
+        { action},
         beforeSend: function(){
             wrapper.waitMe();
         }
         //promesas
     }).done(function(res){
-        console.log('res');
+        if (res.status === 200) {
+            wrapper.html(res.data);
+        }   
     }).fail(function(err){
         console.log('err');
         swal.fire('lo siento','ha ocurrido un error', "error");
@@ -28,7 +29,7 @@ $( document ).ready(function() {
         console.log('ejecutando always');
         setTimeout(() => {
             wrapper.waitMe('hide');
-        }, 2000);
+        }, 1000);
     });
     };
     load_cart();
