@@ -78,17 +78,17 @@ switch ($action) {
       <table class="table">
         <tr>
           <th class="border-0">Subtotal
-            <td class="text-success text-right border-0">' .format_currency($cart['subtotal']). '</td>
+            <td class="text-success text-right border-0">' .format_currency($cart['cart_totals']['subtotal']). '</td>
           </th>
         </tr>
         <tr>
           <th>Envio
-            <td class="text-success text-right">' .format_currency($cart['shipment']). '</td>
+            <td class="text-success text-right">' .format_currency($cart['cart_totals']['shipment']). '</td>
           </th>
         </tr>
         <tr>
           <th>Total
-            <td class="text-success text-right"> <h3 class="font-weight-bold">' .format_currency($cart['total']). '</h3></td>
+            <td class="text-success text-right"> <h3 class="font-weight-bold">' .format_currency($cart['cart_totals']['total']). '</h3></td>
           </th>
         </tr>
       </table>
