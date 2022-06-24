@@ -67,7 +67,7 @@ switch ($action) {
             $output .= '
             <div class="text-center">
             <img src="'.IMAGES.'carvacio.png'.'" title="no hay productos" class="img-fluid" style="width: 150px;">
-            <p> No hay productos en el carrito </p>
+            <p class="text-muted"> No hay productos en el carrito </p>
             </div>';
         }
         $output .= '
