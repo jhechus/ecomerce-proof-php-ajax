@@ -39,15 +39,15 @@ function format_currency($number, $symbol = '$'){
 function get_cart() {
 
    if(isset($_SESSION['cart'])){
+      $_SESSION['cart']['cart_totals'] = calculate_cart_totals();
     return $_SESSION['cart'];
    }
 
    $cart =
    [
-    'products' => [],
-    'total_products' => 0,
-    'cart_totals' => calculate_cart_totals(),
-    'payment_url' => NULL
+    'products'       => [],
+    'cart_totals'    => calculate_cart_totals(),
+    'payment_url'    => NULL
    ];
 
    $_SESSION['cart'] = $cart;
@@ -75,7 +75,7 @@ function calculate_cart_totals(){
 
    // si ya hay productos y hay que sumar las cantidades
    foreach ($_SESSION['cart']['products'] as $p) {
-      $_total = $p['cantidad'] * $p['precio'];
+      $_total = floatval($p['cantidad'] * $p['price']);
       $subtotal = floatval($subtotal + $_total);
    }
 
@@ -87,6 +87,55 @@ function calculate_cart_totals(){
       'total' => $total,
      ];
      return $cart_totals;  
+}
+
+function add_to_cart($id_producto , $cantidad = 1){
+   $new_product =
+   [
+      'id'       => NULL,
+      'sku'      => NULL,
+      'name'     => NULL,
+      'cantidad' => NULL,
+      'price'   => NULL,
+      'imagen'   => NULL
+   ];
+
+   $product = get_product_by_id($id_producto);
+   // algo paso o no hay producto
+   if (!$product) {
+      return false;
+   }
+
+   $new_product =
+   [
+      'id'       => $product['id'],
+      'sku'      =>  $product['sku'],
+      'name'     =>  $product['name'],
+      'cantidad' =>  $cantidad,
+      'price'   =>  $product['price'],
+      'imagen'   =>  $product['imagen']
+   ];
+
+   //si no existe el carro, no existe el producto
+   //lo agregamos directamente
+   if (!isset($_SESSION['cart']) || empty($_SESSION['cart']['products'])) {
+      $_SESSION['cart']['products'][] = $new_product;
+      return true;
+     }
+
+   // si se agrega pero vamos a loopear el array de todos los productos
+   // para buscar uno con el mismo id si existe
+   foreach ($_SESSION['cart']['products'] as  $i => $p) {
+      if ($p['id'] == $id_producto) {
+         $p['cantidad'] = $p['cantidad']++;
+         $_SESSION['cart']['products'][$i] = $p;
+         return true;
+      } else {
+         $_SESSION['cart']['products'][] = $new_product;
+         return true;
+      }
+   }
+   return false;
 }
 
 function json_output($status = 200, $msg = '' , $data = []){

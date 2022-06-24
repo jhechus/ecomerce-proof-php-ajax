@@ -10,7 +10,7 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle
 <script 
 src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- <script>
-  Swal.fire("hola", "cogemos? OwO", "success");
+  Swal.fire("hola", "funciona? OwO", "success");
 </script> -->
 
 <!-- waitMe -->
