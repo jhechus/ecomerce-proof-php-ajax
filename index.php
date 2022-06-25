@@ -9,9 +9,9 @@ $data =
 ];
 
 //$producto = get_product_by_id(5);
-add_to_cart(3); 
-print_r(get_cart());
-
+//add_to_cart(3); 
+//print_r(get_cart());
+session_destroy();
 
 //renderizado de la vista
 render_view('carro', $data);

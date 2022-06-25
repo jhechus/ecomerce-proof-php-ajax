@@ -127,7 +127,8 @@ function add_to_cart($id_producto , $cantidad = 1){
    // para buscar uno con el mismo id si existe
    foreach ($_SESSION['cart']['products'] as  $i => $p) {
       if ($p['id'] == $id_producto) {
-         $p['cantidad'] = $p['cantidad']++;
+         $_cantidad = $p['cantidad'] + $cantidad;
+         $p['cantidad'] = $_cantidad;
          $_SESSION['cart']['products'][$i] = $p;
          return true;
       } else {
