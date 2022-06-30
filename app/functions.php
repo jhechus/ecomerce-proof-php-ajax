@@ -109,11 +109,11 @@ function add_to_cart($id_producto , $cantidad = 1){
    $new_product =
    [
       'id'       => $product['id'],
-      'sku'      =>  $product['sku'],
-      'name'     =>  $product['name'],
-      'cantidad' =>  $cantidad,
-      'price'   =>  $product['price'],
-      'imagen'   =>  $product['imagen']
+      'sku'      => $product['sku'],
+      'name'     => $product['name'],
+      'cantidad' => $cantidad,
+      'price'    => $product['price'],
+      'imagen'   => $product['imagen']
    ];
 
    //si no existe el carro, no existe el producto
@@ -125,18 +125,18 @@ function add_to_cart($id_producto , $cantidad = 1){
 
    // si se agrega pero vamos a loopear el array de todos los productos
    // para buscar uno con el mismo id si existe
-   foreach ($_SESSION['cart']['products'] as  $i => $p) {
+   foreach ($_SESSION['cart']['products'] as $i => $p) {
       if ($p['id'] == $id_producto) {
-         $_cantidad = $p['cantidad'] + $cantidad;
+         $_cantidad = $p['cantidad'] + 1;
          $p['cantidad'] = $_cantidad;
          $_SESSION['cart']['products'][$i] = $p;
          return true;
       } else {
-         $_SESSION['cart']['products'][] = $new_product;
-         return true;
       }
    }
-   return false;
+   $_SESSION['cart']['products'][] = $new_product;
+   return true;
+   
 }
 
 function json_output($status = 200, $msg = '' , $data = []){

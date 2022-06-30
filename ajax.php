@@ -25,44 +25,32 @@ switch ($action) {
               <thead>
                 <tr>
                   <th> Producto </th>
+                  <th class="text-center"> Precio   </th>
                   <th class="text-center"> Cantidad </th>
-                  <th class="text-center"> Total </th>
+                  <th class="text-center"> Total    </th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td class="align-middle"> Producto 1
-                    <small class="d-block text-muted"> Te de hierbabuena </small>
-                  </td>
-                  <td class="align-middle text-center" width="5%"> 
-                    <input type="number" class="form-control form-control-sm" min="0" max="40" value="1"> </td>
-                  <td class="align-middle text-center"> $120 </td>
-                  <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
-                </tr>
-    
-                <tr>
-                  <td class="align-middle"> Producto 2
-                    <small class="d-block text-muted"> Amor anillo </small>
-                  </td>
-                  <td class="align-middle text-center" width="5%"> 
-                    <input type="number" class="form-control form-control-sm" min="0" max="40" value="1"> </td>
-                  <td class="align-middle text-center"> $60 </td>
-                  <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
-                </tr>
-    
-                <tr>
-                  <td class="align-middle"> Producto 3
-                    <small class="d-block text-muted"> celular </small>
-                  </td>
-                  <td class="align-middle text-center" width="5%"> 
-                    <input type="number" class="form-control form-control-sm" min="0" max="40" value="1"> </td>
-                  <td class="align-middle text-center"> $180 </td>
-                  <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <button class="btn btn-sm btn-danger"> Vaciar carrito </button>';
+              <tbody>';
+              foreach ($cart['products'] as $p) {
+                $output .=
+                  '<tr>
+                    <td class="align-middle">
+                    '.$p['name'].'
+                      <small class="d-block text-muted">SKU '.$p['sku'].' </small>
+                    </td>
+                    <td class="align-middle text-center">'.format_currency($p['price']).'</td>
+                    <td class="align-middle text-center" width="5%"> 
+                      <input type="number" class="form-control form-control-sm" min="0" max="40" value="'.$p['cantidad'].'"> </td>
+                    <td class="align-middle text-center">'.format_currency(floatval($p['cantidad'] * $p['price'])).'</td>
+                    <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
+                  </tr>';
+                }
+                
+                $output .= 
+                  '</tbody>
+                  </table>
+                  </div>
+                  <button class="btn btn-sm btn-danger"> Vaciar carrito </button>';
         } else {
             $output .= '
             <div class="text-center">
