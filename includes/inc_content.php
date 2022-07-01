@@ -14,7 +14,7 @@
             <div class="card-body text-right p-2">
               <h5 class="card-title text-truncate"> <?php echo $p['name'] ?> </h5>
               <p class="text-success"> <?php echo format_currency($p['price']); ?> </p>
-              <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Agregar al carrito"><i class="fas fa-plus"></i> Agregar al carrito </button>
+              <button class="btn btn-sm btn-success do_add_to_cart" data-cantidad="1" data-id=" <?php echo $p['id'] ?> " data-toggle="tooltip" title="Agregar al carrito"><i class="fas fa-plus"></i> Agregar al carrito </button>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
 
 
     <!-- carrito -->
-    <div class="col-xl-4 bg-light">
+    <div class="col-xl-4 bg-light" id="load_wrapper">
       <h1> Carrito </h1>
       <!-- cart content -->
       <div id="cart_wrapper">

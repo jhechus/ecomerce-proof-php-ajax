@@ -87,6 +87,19 @@ switch ($action) {
       <!-- end pay now button -->';
         json_output(200, 'OK', $output);
         break;
+
+        //agregar al carrito
+        case 'post':
+          if (!isset($_POST['id'],$_POST['cantidad'])) {
+            json_output(403);
+          }
+
+          if (!add_to_cart($_POST['id'] , $_POST['cantidad'])) {
+            json_output(400, 'Hubo un problema al agregar el articulo, intente de nuevo');
+          }
+
+          json_output(201);
+          break;
     
     default:
         # code...

@@ -8,9 +8,7 @@ $data =
     'products' => get_products()
 ];
 
-//$producto = get_product_by_id(5);
-add_to_cart(5); 
-//print_r(get_cart());
+//add_to_cart(1); 
 //session_destroy();
 
 //renderizado de la vista

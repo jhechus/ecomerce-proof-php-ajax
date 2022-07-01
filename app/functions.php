@@ -131,8 +131,7 @@ function add_to_cart($id_producto , $cantidad = 1){
          $p['cantidad'] = $_cantidad;
          $_SESSION['cart']['products'][$i] = $p;
          return true;
-      } else {
-      }
+      } 
    }
    $_SESSION['cart']['products'][] = $new_product;
    return true;
