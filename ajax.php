@@ -42,7 +42,11 @@ switch ($action) {
                     <td class="align-middle text-center" width="5%"> 
                       <input type="number" class="form-control form-control-sm" min="0" max="40" value="'.$p['cantidad'].'"> </td>
                     <td class="align-middle text-center">'.format_currency(floatval($p['cantidad'] * $p['price'])).'</td>
-                    <td class="text-right align-middle"><i class="fas fa-times text-danger"></i></td>
+                    <td class="text-right align-middle">
+                    <button class="btn btn-sm btn-danger do_delete_from_cart" data-id="'.$p['id'].'">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </td> 
                   </tr>';
                 }
                 
@@ -50,7 +54,7 @@ switch ($action) {
                   '</tbody>
                   </table>
                   </div>
-                  <button class="btn btn-sm btn-danger"> Vaciar carrito </button>';
+                  <button class="btn btn-sm btn-danger do_destroy_cart"> Vaciar carrito </button>';
         } else {
             $output .= '
             <div class="text-center">
@@ -88,18 +92,29 @@ switch ($action) {
         json_output(200, 'OK', $output);
         break;
 
-        //agregar al carrito
-        case 'post':
-          if (!isset($_POST['id'],$_POST['cantidad'])) {
-            json_output(403);
-          }
+    //agregar al carrito
+    case 'post':
+      if (!isset($_POST['id'],$_POST['cantidad'])) {
+        json_output(403);
+      }
 
-          if (!add_to_cart($_POST['id'] , $_POST['cantidad'])) {
-            json_output(400, 'Hubo un problema al agregar el articulo, intente de nuevo');
-          }
+      if (!add_to_cart($_POST['id'] , $_POST['cantidad'])) {
+        json_output(400, 'Hubo un problema al agregar el articulo, intente de nuevo');
+       }
 
-          json_output(201);
-          break;
+      json_output(201);
+      break;
+    
+      //eliminar carrito
+    case 'destroy':
+      if (!destroy_cart()) {
+        json_output(400, 'Hubo un problema al eliminar el carrito, intente de nuevo');
+      }
+
+      json_output(200);
+      break;
+
+        
     
     default:
         # code...

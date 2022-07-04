@@ -1,3 +1,5 @@
+let timerInterval
+
 $( document ).ready(function() {
     
     //cargar el carro
@@ -60,7 +62,24 @@ $( document ).ready(function() {
             }
         }).done(function(res){
             if(res.status === 201) {
-                swal.fire('agregando producto al carro' , 'success');
+                Swal.fire({
+                            title: 'GRACIAS POR SU COMPRA!',
+                            html: 'Agregando producto al carrito',
+                            timer: 1500,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                            Swal.showLoading()
+                            const b = Swal.getHtmlContainer().querySelector('b')
+                            },
+                            willClose: () => {
+                            clearInterval(timerInterval)
+                            }
+                            }).then((result) => {
+                            /* Read more about handling dismissals below */
+                            if (result.dismiss === Swal.DismissReason.timer) {
+                            console.log('I was closed by the timer')
+                            }
+                            })
                 load_cart();
                 return;
             } else {
@@ -73,5 +92,76 @@ $( document ).ready(function() {
 
         });
     });
+
+    //borrar un articulo
+    $('body').on('click', 'do_delete_from_cart' , delete_from_cart);
+    function delete_from_cart(event) {
+        var confirmation,
+        id = $(this).data('id'),
+        action = 'delete';
+
+        confirmation = confirm('Estas seguro?')
+
+        if(!confirmation) return;
+
+        $.ajax({
+            url: 'ajax.php',
+            type: 'POST',
+            dataType: 'JSON',
+            data:
+            {
+                action,
+                id
+            }
+        }).done(function(res){
+            if(res.status === 200) {
+                swal.fire('eliminando articulo');
+                load_cart();
+                return;
+            } else {
+                swal.fire('lo siento',res.msg, "error");
+                return;
+            }
+        }).fail(function(err){
+            swal.fire('Rayos', 'intenta de nuevo', 'error');
+        }).always(function(){
+
+        });
+        
+    }
+
+    //vaciar carro
+    $('body').on('click' , '.do_destroy_cart' , destroy_cart);
+    function destroy_cart(event) {
+        var confirmation,
+        action = 'destroy';
+
+        confirmation = confirm('Estas seguro?')
+
+        if(!confirmation) return;
+
+        $.ajax({
+            url: 'ajax.php',
+            type: 'POST',
+            dataType: 'JSON',
+            data:
+            {
+                action
+            }
+        }).done(function(res){
+            if(res.status === 200) {
+                swal.fire('eliminando productos');
+                load_cart();
+                return;
+            } else {
+                swal.fire('lo siento',res.msg, "error");
+                return;
+            }
+        }).fail(function(err){
+            swal.fire('Rayos', 'intenta de nuevo', 'error');
+        }).always(function(){
+
+        });
+    }
 
 });
