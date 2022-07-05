@@ -65,7 +65,7 @@ $( document ).ready(function() {
                 Swal.fire({
                             title: 'GRACIAS POR SU COMPRA!',
                             html: 'Agregando producto al carrito',
-                            timer: 1500,
+                            timer: 1000,
                             timerProgressBar: true,
                             didOpen: () => {
                             Swal.showLoading()
@@ -77,7 +77,7 @@ $( document ).ready(function() {
                             }).then((result) => {
                             /* Read more about handling dismissals below */
                             if (result.dismiss === Swal.DismissReason.timer) {
-                            console.log('I was closed by the timer')
+                            console.log('se agrego el producto')
                             }
                             })
                 load_cart();
@@ -94,7 +94,7 @@ $( document ).ready(function() {
     });
 
     //borrar un articulo
-    $('body').on('click', 'do_delete_from_cart' , delete_from_cart);
+    $('body').on('click', '.do_delete_from_cart' , delete_from_cart);
     function delete_from_cart(event) {
         var confirmation,
         id = $(this).data('id'),
@@ -115,7 +115,23 @@ $( document ).ready(function() {
             }
         }).done(function(res){
             if(res.status === 200) {
-                swal.fire('eliminando articulo');
+                Swal.fire({
+                    html: 'Eliminando producto',
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    },
+                    willClose: () => {
+                    clearInterval(timerInterval)
+                    }
+                    }).then((result) => {
+                        /* Read more about handling dismissals below */
+                        if (result.dismiss === Swal.DismissReason.timer) {
+                        console.log('se borro el producto')
+                        }
+                        })
                 load_cart();
                 return;
             } else {
@@ -125,7 +141,6 @@ $( document ).ready(function() {
         }).fail(function(err){
             swal.fire('Rayos', 'intenta de nuevo', 'error');
         }).always(function(){
-
         });
         
     }

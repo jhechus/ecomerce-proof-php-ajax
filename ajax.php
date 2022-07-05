@@ -114,9 +114,23 @@ switch ($action) {
       json_output(200);
       break;
 
+      //eliminar articulo
+
+      case 'delete':
+        if (!isset($_POST['id'])) {
+          json_output(403);
+        }
+
+        if (!delete_from_cart((int)$_POST['id'])) {
+          json_output(400, 'Hubo un problema al eliminar el articulo, intente de nuevo');
+        }
+
+        json_output(200);
+        break;
+
         
     
-    default:
-        # code...
+        default:
+        json_output(403);
         break;
 }
